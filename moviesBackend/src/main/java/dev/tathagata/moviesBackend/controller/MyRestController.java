@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.net.ssl.SSLEngineResult;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,6 +36,7 @@ public class MyRestController {
         return new ResponseEntity<Optional<Movie>>(movieService.movieByImdbId(id),
                 HttpStatus.OK);
     }
+
 
     @PostMapping("/reviews/")
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {

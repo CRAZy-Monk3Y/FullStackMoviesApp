@@ -13,8 +13,8 @@ import java.util.List;
 @Service
 public class ReviewService {
 
-    private ReviewRepository reviewRepository;
-    private MongoTemplate mongoTemplate;
+    private final ReviewRepository reviewRepository;
+    private final MongoTemplate mongoTemplate;
 
     public ReviewService(ReviewRepository reviewRepository, MongoTemplate mongoTemplate) {
         this.reviewRepository = reviewRepository;
@@ -32,8 +32,12 @@ public class ReviewService {
         return review;
     }
 
+    public List<Review> getAllReviews() {
+        return reviewRepository.findAll();
+    }
+
     public boolean deleteAllReviews() {
-        List<Review> reviews = reviewRepository.findAll();
+        List<Review> reviews = getAllReviews();
         reviewRepository.deleteAll();
 
         return !reviews.isEmpty();
