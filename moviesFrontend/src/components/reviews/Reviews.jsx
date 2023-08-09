@@ -24,10 +24,11 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
         reviewBody: rev.value,
         imdbId: movieId,
       });
-      console.log(reviews);
-      //   const updatedReviews = [...reviews, { body: rev.value }];
+      let reviewBody = response.data;
+      // console.log(reviewBody);
+      // const updatedReviews = [...reviews, { body: reviewBody }];
 
-      // setReviews((prevReviews) => [...prevReviews, { body: rev.value }]);
+      setReviews((prevReviews) => [{ ...reviewBody }, ...prevReviews]);
       rev.value = "";
     } catch (error) {
       console.error(error);
@@ -66,7 +67,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
           }
           {reviews?.map((review) => {
             return (
-              <>
+              <div key={review.id.timestamp}>
                 <Row>
                   <Col>{review.body}</Col>
                 </Row>
@@ -75,7 +76,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                     <hr />
                   </Col>
                 </Row>
-              </>
+              </div>
             );
           })}
         </Col>

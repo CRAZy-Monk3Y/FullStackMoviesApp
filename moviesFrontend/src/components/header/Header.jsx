@@ -1,6 +1,7 @@
 import React from "react";
-import { FaVideoSlash } from 'react-icons/fa'
-import { Button, Container, Nav, Navbar, NavLink } from "react-bootstrap";
+import { FaVideoSlash } from "react-icons/fa";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       <Container fluid>
         <Navbar.Brand href="/" style={{ color: "gold" }}>
           <FaVideoSlash />
-          Gold
+          CineView
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
           <Nav
