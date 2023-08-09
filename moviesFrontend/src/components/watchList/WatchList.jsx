@@ -5,6 +5,7 @@ const WatchList = ({ watchList, setWatchList }) => {
     const handleMovieAdding =() => {
         
     }
+    
   return (
     <div>
       <div>

@@ -76,3 +76,14 @@
     top: 20px;
   }
 }
+
+.grid {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 1rem 0.5rem;
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item {
+}
