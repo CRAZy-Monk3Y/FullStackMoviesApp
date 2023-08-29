@@ -87,3 +87,13 @@
 
 .grid-item {
 }
+
+.movie_card_body {
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add_to_watchlist {
+  max-width: 100px;
+}

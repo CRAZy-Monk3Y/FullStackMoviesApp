@@ -1,0 +1,18 @@
+.watchlist__container {
+  margin: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.navigate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+    margin-top: 30vh !important;
+    text-align: center !important;
+    height: 33vh !important;
+}

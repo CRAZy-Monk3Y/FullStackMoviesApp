@@ -5,21 +5,30 @@ import { Paper } from "@mui/material";
 import { FaPlayCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addMovie } from "../../redux/watchListSlice";
 
 const Hero = ({ movies }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function reviews(movieId) {
     navigate(`/Reviews/${movieId}`);
   }
 
+  function watchlist() {
+    navigate("/watchlist");
+  }
+
+  // console.log(movies);
+
   return (
     <>
       <div className="movie-carousel-container">
         <Carousel animation="slide" swipe duration={1000}>
-          {movies?.map((movie, index) => {
+          {movies?.map((movie) => {
             return (
-              <Paper key={index}>
+              <Paper key={movie.imdbId}>
                 <div className="movie-card-container">
                   <div
                     className="movie-card"
@@ -68,11 +77,20 @@ const Hero = ({ movies }) => {
             className="grid-item"
           >
             <Card.Img variant="top" src={movie.poster} />
-            <Card.Body>
+            <Card.Body className="d-flex movie_card_body">
               <Card.Title style={{ textAlign: "center" }}>
                 {movie.title}
               </Card.Title>
-              <Button variant="success">Add To Watchlist</Button>
+              <Button
+                variant="success"
+                className="add_to_watchlist"
+                onClick={() => {
+                  dispatch(addMovie(movie));
+                  watchlist();
+                }}
+              >
+                Add to Watchlist
+              </Button>
             </Card.Body>
           </Card>
         ))}
